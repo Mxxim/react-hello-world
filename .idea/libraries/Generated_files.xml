@@ -1,0 +1,22 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/demo/entry-compiled.js" />
+        <item url="file://$PROJECT_DIR$/demo/js/react-compiled.js" />
+        <item url="file://$PROJECT_DIR$/demo/js/react-dom-compiled.js" />
+        <item url="file://$PROJECT_DIR$/demo/entry-webpack-compiled.js" />
+        <item url="file://$PROJECT_DIR$/demo/js/babel.min-compiled.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/demo/hello-compiled.js" />
+      <root url="file://$PROJECT_DIR$/demo/entry-compiled.js" />
+      <root url="file://$PROJECT_DIR$/demo/js/react-compiled.js" />
+      <root url="file://$PROJECT_DIR$/demo/js/react-dom-compiled.js" />
+      <root url="file://$PROJECT_DIR$/demo/entry-webpack-compiled.js" />
+      <root url="file://$PROJECT_DIR$/demo/js/babel.min-compiled.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

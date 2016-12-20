@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件嵌套例子</title>
+</head>
+<script src="https://unpkg.com/react@latest/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<!--<script src="entry-webpack.js"></script>-->
+<body>
+<div id="root2"></div>
+<script type="text/babel">
+
+    // ----- 自定义组件，形式一 ----------
+//    function Welcome(props) {
+//        return <h2>hello, {props.name}</h2>;
+//    }
+
+    // ----- 自定义组件，形式二 ----------
+    class Welcome extends React.Component {
+        render() {
+            return <h2>hello, {this.props.name}</h2>
+        }
+    }
+
+    const element = <Welcome name="sammy"/>;
+    ReactDOM.render(
+            element,
+            document.getElementById("root2")
+    )
+
+    // ----- 自定义组件 ---------
+    class Comment extends React.Component {
+        render() {
+            return (
+                    <div className="Comment">
+                        <UserInfo user={this.props.author}/>
+                        <div className="Comment-text">
+                            {this.props.text}
+                        </div>
+                        <div className="Comment-date">
+                            {formatDate(this.props.date)}
+                        </div>
+                    </div>
+            );
+        }
+    }
+
+    class Avatar extends React.Component {
+        render() {
+            return (
+                    <img className="Avatar"
+                         src={this.props.user.avatarUrl}
+                         alt={this.props.user.name}
+                    />
+            );
+        }
+    }
+
+    class UserInfo extends React.Component {
+        render() {
+            return (
+                    <div className="UserInfo">
+                        <Avatar user={this.props.user} />
+                        <div className="UserInfo-name">
+                            {this.props.user.name}
+                        </div>
+                    </div>
+            );
+        }
+    }
+
+    function formatDate(date) {
+        return date
+    }
+
+</script>
+</body>
+</html>
