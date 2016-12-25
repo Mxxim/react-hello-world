@@ -57,6 +57,16 @@
                                 filterText={this.state.filterText}
                                 inStockOnly={this.state.inStockOnly}
                         />
+                        <br/>
+                        <div>
+                            <b>Booleans, Null, and Undefined Are Ignored </b>
+                            <p>Should print "true": {true}</p>
+                            <p>Should print "true": {String(true)}</p>
+                            <p>Should print "null": {null}</p>
+                            <p>Should print "null": {String(null)}</p>
+                            <p>Should print "undefined": {undefined}</p>
+                            <p>Should print "null": {String(undefined)}</p>
+                        </div>
                     </div>
             )
         }
@@ -69,6 +79,9 @@
         }
 
         handleChange() {
+            console.log(this.refs); // Object {tip: span, tip2: span}
+            console.log(ReactDOM.findDOMNode(this.refs.tip)); // <span ref="tip">&emsp;TEST</span>
+
             this.props.onUserInput(
                     this.filterTextInput.value,
                     this.inStockOnlyInput.checked
@@ -83,6 +96,8 @@
                                ref={(input) => this.filterTextInput = input}
                                onChange={this.handleChange}
                         />
+                        <span ref="tip">&emsp;TEST</span>
+                        <span ref="tip2"></span>
                         <p>
                             <input type="checkbox"
                                    checked={this.props.inStockOnly}
@@ -134,9 +149,16 @@
 
     class ProductRow extends React.Component {
         render() {
+
+            var styleObj = {
+                color: 'red',
+                fontWeight: 'bold'
+            }
+
             var name = this.props.product.stocked ?
                     this.props.product.name :
-                    <span style={{color:'red'}}>{this.props.product.name}</span>;
+                 //   <span style={{color:'red'}}>{this.props.product.name}</span>;
+                    <span style={styleObj}>{this.props.product.name}</span>;
 
             return (
                 <tr>
